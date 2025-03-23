@@ -14,7 +14,28 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let map = {};
+  for(let mp of transactions) {
+    let cat = mp.category;
+    // if the key is not present
+    if(!Object.hasOwn(map, cat)) {
+      map[cat] = {category: cat, totalSpent: mp.price};
+    }
+    // if the key is not present
+    else {
+      map[cat].totalSpent += mp.price;
+    }
+  }
+
+  // IMP- converting the map values in the form of array. Since our values are in the desired form
+  return Object.values(map);
 }
 
 module.exports = calculateTotalSpentByCategory;
+
+// Here we can do is that we will maintain an object having key-value pairs as key: category
+// value : {category: mp.category or cat, totalSpent: mp.price}
+
+// We will iterate through each object in the array 'transactions' and we will see whether the category
+// exist in the new array or not. If not then we will give them a new spent value
+// If yes, then we will update the value of the totalSpent 
