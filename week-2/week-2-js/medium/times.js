@@ -9,5 +9,11 @@ There is no automated test for this one, this is more for you to understand time
 */
 
 function calculateTime(n) {
-    return 0.01;
-}
+    let date = new Date();
+    let now = date.toISOString().split('T')[1].join("");
+    let sum = 0;
+    for(let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    let then = date.toISOString().split('T')[1].join("");
+
